@@ -1,0 +1,136 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video,
+textarea, input {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section,
+textarea, input {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+svg {
+  height: 1em;
+  width: 1em;
+  pointer-events: none;
+  top: -0.125em;
+  position: relative;
+  vertical-align: middle;
+  transform: scale(1.5); }
+
+:focus {
+  outline: none; }
+
+html {
+  background: #cb2c2c;
+  width: 100%;
+  height: 100%;
+  outline: none; }
+
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-user-select: none;
+  color: white;
+  font-family: 'Exo', sans-serif; }
+
+.page {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100; }
+
+#setup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0.5em; }
+  #setup input {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-align: center;
+    border-radius: 2px; }
+    #setup input::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: white;
+      opacity: 0.5;
+      /* Firefox */ }
+  #setup button {
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer; }
+    #setup button:hover {
+      background: rgba(255, 255, 255, 0.2); }
+  #setup input, #setup button {
+    -webkit-app-region: no-drag !important; }
+
+#timer {
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0.5em;
+  text-align: center; }
+  #timer #timeleft {
+    font-variant-numeric: diagonal-fractions;
+    font-weight: bold;
+    font-size: 2em;
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0.1em 0.1em 0 rgba(0, 0, 0, 0.4); }
+  #timer.flash {
+    background: white;
+    color: #cb2c2c; }
+
+#drag {
+  width: 20px;
+  height: 20px;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-app-region: drag;
+  z-index: 0 !important;
+  cursor: grab; }

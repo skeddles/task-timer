@@ -1,0 +1,101 @@
+@import 'util';
+
+html {
+	background: $red;
+	width: 100%;
+	height: 100%;
+	outline: none;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	-webkit-user-select: none;
+	color: white;
+    font-family: 'Exo', sans-serif;
+}
+
+
+.page {
+	position: absolute;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+	z-index: 100;
+
+	* {
+		
+	}
+}
+
+#setup {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	padding: 0.5em;
+
+	input {
+		background: rgba(255,255,255,0.2);
+		color: white;
+		text-align: center;
+		border-radius: 2px;
+
+		&::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+			color: white;
+			opacity: 0.5; /* Firefox */
+		}
+	}
+
+	button {
+		background: transparent;
+		border: none;
+		font-size: 1rem;
+		color: white;
+		cursor: pointer;
+
+		&:hover {
+			background: rgba(255,255,255,0.2);
+		}
+	}
+
+	input, button {
+		-webkit-app-region: no-drag !important;
+	}
+}
+
+#timer {
+	visibility: hidden;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	padding: 0.5em;
+
+	text-align: center;
+
+	#timeleft {
+		font-variant-numeric: diagonal-fractions;
+		font-weight: bold;
+		font-size: 2em;
+		font-variant-numeric: tabular-nums;
+		text-shadow: 0.1em 0.1em 0 rgba(0,0,0,0.4);
+	}
+ 
+	&.flash {  
+		background: white;
+		color: $red;
+	}
+}
+
+#drag {
+	width: 20px;
+	height: 20px;
+	bottom: 0;
+	right:0;
+	position: absolute;
+	background: rgba(0,0,0,0.2);
+	-webkit-app-region: drag;
+	z-index: 0 !important;
+	cursor: grab;
+}
