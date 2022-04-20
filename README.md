@@ -10,3 +10,8 @@ This is a simple productivity app I made for myself to help keep myself focused.
 - Stays on top of other windows
 - Red border shows on your screen to remind you
 - Occasional beeps and shakes to remind you 
+
+## Other Info
+
+Sorry the exe is so big (40MB). The app was created with javascript and packaged with electron / electron-builder.
+
