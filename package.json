@@ -1,12 +1,12 @@
 {
 	"name": "task-timer",
-	"version": "1.0.0",
+	"version": "2.0.0",
 	"description": "",
 	"main": "main.js",
 	"scripts": {
 		"start": "electron .",
 		"watch": "node watcher.js",
-		"build": "npm exec electron-builder --win portable"
+		"build": "npm exec electron-builder --win"
 	},
 	"author": "skeddles",
 	"dependencies": {
@@ -19,5 +19,15 @@
 		"electron": "^6.0.5",
 		"electron-builder": "^23.0.3",
 		"electron-packager": "^15.5.0"
+	},
+	"build": {
+		"appId": "task-timer",
+		"productName": "Task Timer",
+		"directories": {
+			"output": "build"
+		},
+		"win": {
+			"target": "portable"
+		}
 	}
 }
