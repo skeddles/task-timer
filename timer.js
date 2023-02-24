@@ -50,8 +50,10 @@ borderWindow.loadFile('border.htm');
 
 borderWindow.setIgnoreMouseEvents(true);
 
+var PAUSED = false;
 
 function update() {
+	if (PAUSED) return;
 
 	// Get todays date and time
 	var now = new Date().getTime();
@@ -130,6 +132,23 @@ start.addEventListener('click', function () {
 	startSound.play();
 	say('Starting task ' + taskInput.value);
 });
+
+//pause / resume timer by clicking on time left
+timeleft.addEventListener('click', function () {
+	console.log('toggling pause to ' + !PAUSED);
+
+	if (PAUSED) {
+		let minutesLeft = parseInt(timeleft.innerHTML.split(':')[0]);
+		let secondsLeft = parseInt(timeleft.innerHTML.split(':')[1]);
+		countDownDate = new Date().getTime() + (minutesLeft * 60 * 1000) + (secondsLeft * 1000);
+		timeleft.classList.remove('paused');
+	}
+	else 
+		timeleft.classList.add('paused');
+
+	PAUSED = !PAUSED;
+});
+
 
 function say(text) {
 	var speech = new SpeechSynthesisUtterance(text);

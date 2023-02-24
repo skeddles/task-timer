@@ -80,6 +80,25 @@ body {
 		font-size: 2em;
 		font-variant-numeric: tabular-nums;
 		text-shadow: 0.1em 0.1em 0 rgba(0,0,0,0.4);
+		position: relative;
+		cursor: pointer;
+
+		&:after {
+			content: '| |';
+			position: absolute;
+			right: 0;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			text-align: center;
+			background: transparentize($red, 0.2);
+			font-weight: 900;
+			opacity: 0;
+		}
+		&:hover:after{opacity: 1}
+		&:active:after{transform: translateY(2px)}
+		&.paused:after{opacity: 1; background: transparentize($red, 0.4);}
+		&.paused:hover:after{content:'▶'}
 	}
  
 	&.flash {  
@@ -96,6 +115,6 @@ body {
 	position: absolute;
 	background: rgba(0,0,0,0.2);
 	-webkit-app-region: drag;
-	z-index: 0 !important;
-	cursor: grab;
+	z-index: 9999999999999 !important;
+	cursor: grab; 
 }
