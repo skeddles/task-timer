@@ -15,7 +15,7 @@ This is a simple productivity app I made for myself to help keep myself focused.
 - Occasional beeps/shakes/talking to keep you focused
 - Pause timer and change task name
 
-![screenshot2](screenshot2.png)
+![screenshot2](screenshot2.gif)
 
 ## Problems
 
