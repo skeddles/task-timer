@@ -21,12 +21,18 @@ function openTimer() {
 		width: 150,
 		height: 100,
 		webPreferences: {
-			nodeIntegration: true
+			nodeIntegration: true,
+			contextIsolation: false, 
+			enableRemoteModule: true,
 		},
 		icon: __dirname + '/build/icon.ico',
 		frame: false,
 		resizable: false,
 		alwaysOnTop: true,
+		nodeIntegration: true,
+		nodeIntegrationInWorker: true,
+		nodeIntegrationInSubFrames: true,
+
 	});
   
 	timerWindow.loadFile('timer.htm');
