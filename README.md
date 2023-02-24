@@ -4,7 +4,7 @@ This is a simple productivity app I made for myself to help keep myself focused.
 
 [DOWNLOAD](https://github.com/skeddles/task-timer/releases/tag/v1)
 
-![alt text](screenshot.png)
+![screenshot](screenshot.png)
 
 
 ### Features:
@@ -14,6 +14,8 @@ This is a simple productivity app I made for myself to help keep myself focused.
 - Red border shows on your screen to put you in the zone
 - Occasional beeps/shakes/talking to keep you focused
 - Pause timer and change task name
+
+![screenshot2](screenshot2.png)
 
 ## Problems
 
