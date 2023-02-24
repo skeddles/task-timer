@@ -1,19 +1,23 @@
 {
-  "name": "task-timer",
-  "version": "1.0.0",
-  "description": "",
-  "main": "main.js",
-  "scripts": {
-    "start": "electron .",
-	"build": "npm exec electron-builder --win portable"
-  },
-  "author": "skeddles",
-  "dependencies": {
-    "data-store": "^3.1.0"
-  },
-  "devDependencies": {
-    "electron-builder": "^23.0.3",
-    "electron-packager": "^15.5.0",
-	"electron": "^6.0.5"
-  }
+	"name": "task-timer",
+	"version": "1.0.0",
+	"description": "",
+	"main": "main.js",
+	"scripts": {
+		"start": "electron .",
+		"watch": "node watcher.js",
+		"build": "npm exec electron-builder --win portable"
+	},
+	"author": "skeddles",
+	"dependencies": {
+		"chokidar": "^3.5.3",
+		"data-store": "^3.1.0",
+		"glob": "^8.1.0",
+		"sass": "^1.58.3"
+	},
+	"devDependencies": {
+		"electron": "^6.0.5",
+		"electron-builder": "^23.0.3",
+		"electron-packager": "^15.5.0"
+	}
 }
