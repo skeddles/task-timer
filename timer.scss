@@ -118,3 +118,19 @@ body {
 	z-index: 9999999999999 !important;
 	cursor: grab; 
 }
+
+#back {
+	width: 20px;
+	height: 20px;
+	top: 0;
+	right:0;
+	position: absolute;
+	cursor: pointer;
+    font-weight: 600;
+    font-size: 21px;
+	display: none;
+	opacity: 0.25;
+	&:hover {opacity: 1; background: rgba(0,0,0,0.2);}
+	&:active:after{transform: translateY(2px)}
+}
+body:hover #back {display: block;}

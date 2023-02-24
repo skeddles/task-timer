@@ -20,6 +20,7 @@ const timer = document.getElementById('timer');
 const setup = document.getElementById('setup');
 const timeleft = document.getElementById('timeleft');
 const currenttask = document.getElementById('currenttask');
+const backbutton = document.getElementById('back');
 
 //audio
 var doneSound = new Audio('done.mp3');
@@ -78,6 +79,7 @@ function update() {
 		say(currenttask.innerHTML + ' complete');
 
 		//show main screen
+		start.innerHTML = 'Start';
 		setup.style.visibility = 'visible';
 		timer.style.visibility = 'hidden';
 
@@ -103,13 +105,9 @@ function update() {
 start.addEventListener('click', function () {
 
 
-	console.log('aASDFA', minutesInput)
 
 	// Set the date we're counting down to
 	countDownDate = new Date().getTime() + minutesInput.value * 60 * 1000;
-
-	// Update the count down every 1 second
-	interval = setInterval(update, 1000);
 
 	//set start time
 	var now = new Date().getTime();
@@ -117,6 +115,12 @@ start.addEventListener('click', function () {
 	var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 	var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 	timeleft.innerHTML = minutes.toString().padStart(2, '00') + ":" + seconds.toString().padStart(2, '00');
+
+	// Update the count down every 1 second
+	interval = setInterval(update, 1000);
+
+	say(start.innerHTML+ 'ing task ' + taskInput.value);
+	
 
 	//set task name
 	currenttask.innerHTML = taskInput.value || 'Work';
@@ -130,7 +134,7 @@ start.addEventListener('click', function () {
 
 	//play sound
 	startSound.play();
-	say('Starting task ' + taskInput.value);
+	
 });
 
 //pause / resume timer by clicking on time left
@@ -142,13 +146,41 @@ timeleft.addEventListener('click', function () {
 		let secondsLeft = parseInt(timeleft.innerHTML.split(':')[1]);
 		countDownDate = new Date().getTime() + (minutesLeft * 60 * 1000) + (secondsLeft * 1000);
 		timeleft.classList.remove('paused');
+		say('Resuming task '+ taskInput.value);
 	}
-	else 
+	else {
 		timeleft.classList.add('paused');
+		say('Pausing task');
+	}
 
 	PAUSED = !PAUSED;
 });
 
+//click x button
+backbutton.addEventListener('click', function () {
+	let minutesLeft = parseInt(timeleft.innerHTML.split(':')[0]);
+	let secondsLeft = parseInt(timeleft.innerHTML.split(':')[1]);
+
+
+	//set minutes to minutes plus seconds divided by 60, and round to 2 decimal places
+	minutesInput.value = Math.round((minutesLeft + (secondsLeft/60)) * 100) / 100;
+
+	//show start screen
+	setup.style.visibility = 'visible';
+	timer.style.visibility = 'hidden';
+
+	clearInterval(interval);
+
+	start.innerHTML = 'Resume';
+
+	say('Pausing task');
+});
+
+minutes.addEventListener('change', function () {
+	if (start.innerHTML=='Resume') {
+		start.innerHTML='Start';
+	}
+});
 
 function say(text) {
 	var speech = new SpeechSynthesisUtterance(text);
